@@ -278,7 +278,8 @@
 #define KEY_PAUSECD		201
 #define KEY_PROG3		202
 #define KEY_PROG4		203
-#define KEY_DASHBOARD		204	/* AL Dashboard */
+#define KEY_ALL_APPLICATIONS	204	/* AC Desktop Show All Applications */
+#define KEY_DASHBOARD		KEY_ALL_APPLICATIONS
 #define KEY_SUSPEND		205
 #define KEY_CLOSE		206	/* AC Close */
 #define KEY_PLAY		207
@@ -336,11 +337,6 @@
 #define KEY_RFKILL		247	/* Key that controls all radios */
 
 #define KEY_MICMUTE		248	/* Mute / unmute the microphone */
-
-#ifdef CONFIG_NUBIA_DOUBLE_PWRKEY
-#define KEY_LEFTPWR		249 /* Nubia left power flag*/
-#define KEY_RIGHTPWR		250 /* Nubia right power flag*/
-#endif
 
 /* Code 255 is reserved for special needs of AT keyboard driver */
 
@@ -422,10 +418,6 @@
 #define BTN_WHEEL		0x150
 #define BTN_GEAR_DOWN		0x150
 #define BTN_GEAR_UP		0x151
-
-#ifdef CONFIG_INPUT_CS_PRESS_F61	/*add for nubia cs_press*/
-#define BTN_CS_PRESS            0x152
-#endif
 
 #define KEY_OK			0x160
 #define KEY_SELECT		0x161
@@ -611,11 +603,6 @@
 #define KEY_SCREENSAVER		0x245	/* AL Screen Saver */
 #define KEY_VOICECOMMAND		0x246	/* Listening Voice Command */
 #define KEY_ASSISTANT		0x247	/* AL Context-aware desktop assistant */
-#ifdef CONFIG_NUBIA_CYPRESS_KEYBOARD_GAMEFIRE
-#define KEY_GAMEFIRE_LEFT      0x248   /* Nubia game fire key left*/
-#define KEY_GAMEFIRE_RIGHT             0x249   /* Nubia game fire key right*/
-#endif
-
 
 #define KEY_BRIGHTNESS_MIN		0x250	/* Set Brightness to Minimum */
 #define KEY_BRIGHTNESS_MAX		0x251	/* Set Brightness to Maximum */
@@ -701,14 +688,6 @@
 #define BTN_TRIGGER_HAPPY39		0x2e6
 #define BTN_TRIGGER_HAPPY40		0x2e7
 
-/* Custom fingerprint gestures keys */
-#define KEY_FP_GESTURE_UP		0x2e8
-#define KEY_FP_GESTURE_DOWN		0x2e9
-#define KEY_FP_GESTURE_LEFT		0x2ea
-#define KEY_FP_GESTURE_RIGHT		0x2eb
-#define KEY_FP_GESTURE_LONG_PRESS	0x2ec
-#define KEY_FP_GESTURE_TAP		0x2ed
-
 /* We avoid low common keys in module aliases so they don't get huge. */
 #define KEY_MIN_INTERESTING	KEY_MUTE
 #define KEY_MAX			0x2ff
@@ -764,10 +743,14 @@
 
 #define ABS_MISC		0x28
 
-#ifdef CONFIG_INPUT_CS_PRESS_F61	/*add for nubia cs_press*/
-#define ABS_CS_PRESS_LEFT_BTN   0x29
-#define ABS_CS_PRESS_RIGHT_BTN   0x2a
-#endif
+/*
+ * 0x2e is reserved and should not be used in input drivers.
+ * It was used by HID as ABS_MISC+6 and userspace needs to detect if
+ * the next ABS_* event is correct or is just ABS_MISC + n.
+ * We define here ABS_RESERVED so userspace can rely on it and detect
+ * the situation described above.
+ */
+#define ABS_RESERVED		0x2e
 
 #define ABS_MT_SLOT		0x2f	/* MT slot being modified */
 #define ABS_MT_TOUCH_MAJOR	0x30	/* Major axis of touching ellipse */
@@ -811,14 +794,8 @@
 #define SW_LINEIN_INSERT	0x0d  /* set = inserted */
 #define SW_MUTE_DEVICE		0x0e  /* set = device disabled */
 #define SW_PEN_INSERTED		0x0f  /* set = pen inserted */
-#define SW_HPHL_OVERCURRENT	0x10  /* set = over current on left hph */
-#define SW_HPHR_OVERCURRENT	0x11  /* set = over current on right hph */
-#define SW_MICROPHONE2_INSERT	0x12  /* set = inserted */
-#define SW_UNSUPPORT_INSERT	0x13  /* set = unsupported device inserted */
-#ifdef CONFIG_NUBIA_KEYBOARD_GAMESWITCH
-#define KEY_GAME_SWITCH         0x19
-#endif
-#define SW_MAX			0x20
+#define SW_MACHINE_COVER	0x10  /* set = cover closed */
+#define SW_MAX			0x10
 #define SW_CNT			(SW_MAX+1)
 
 /*
