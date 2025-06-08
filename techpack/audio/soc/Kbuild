@@ -153,20 +153,20 @@ GCOV_PROFILE := y
 endif
 
 # Module information used by KBuild framework
-obj-$(CONFIG_PINCTRL_WCD) += pinctrl_wcd_dlkm.o
+# obj-$(CONFIG_PINCTRL_WCD) += pinctrl_wcd_dlkm.o
 pinctrl_wcd_dlkm-y := $(PINCTRL_WCD_OBJS)
 
-obj-$(CONFIG_PINCTRL_LPI) += pinctrl_lpi_dlkm.o
+# obj-$(CONFIG_PINCTRL_LPI) += pinctrl_lpi_dlkm.o
 pinctrl_lpi_dlkm-y := $(PINCTRL_LPI_OBJS)
 
-obj-$(CONFIG_SOUNDWIRE) += swr_dlkm.o
+# obj-$(CONFIG_SOUNDWIRE) += swr_dlkm.o
 swr_dlkm-y := $(SWR_OBJS)
 
-obj-$(CONFIG_SND_EVENT) += snd_event_dlkm.o
+# obj-$(CONFIG_SND_EVENT) += snd_event_dlkm.o
 snd_event_dlkm-y := $(SND_EVENT_OBJS)
 
-obj-$(CONFIG_SOUNDWIRE_WCD_CTRL) += swr_ctrl_dlkm.o
-obj-$(CONFIG_SOUNDWIRE_MSTR_CTRL) += swr_ctrl_dlkm.o
+# obj-$(CONFIG_SOUNDWIRE_WCD_CTRL) += swr_ctrl_dlkm.o
+# obj-$(CONFIG_SOUNDWIRE_MSTR_CTRL) += swr_ctrl_dlkm.o
 swr_ctrl_dlkm-y := $(SWR_CTRL_OBJS)
 
 # inject some build related information

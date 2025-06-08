@@ -1,3 +1,4 @@
+#define YYLTYPE_IS_DECLARED 1
 #line 2 "dtc-lexer.lex.c"
 
 #line 4 "dtc-lexer.lex.c"

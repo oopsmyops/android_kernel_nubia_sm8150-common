@@ -210,28 +210,28 @@ GCOV_PROFILE := y
 endif
 
 # Module information used by KBuild framework
-obj-$(CONFIG_SND_SOC_QDSP6V2) += platform_dlkm.o
+# obj-$(CONFIG_SND_SOC_QDSP6V2) += platform_dlkm.o
 platform_dlkm-y := $(PLATFORM_OBJS)
 
-obj-$(CONFIG_SND_SOC_MACHINE_SDM845) += machine_dlkm.o
+# obj-$(CONFIG_SND_SOC_MACHINE_SDM845) += machine_dlkm.o
 machine_dlkm-y := $(MACHINE_OBJS)
 
-obj-$(CONFIG_SND_SOC_SM8150) += machine_dlkm.o
+# obj-$(CONFIG_SND_SOC_SM8150) += machine_dlkm.o
 machine_dlkm-y := $(MACHINE_OBJS)
 
-obj-$(CONFIG_SND_SOC_SM6150) += machine_dlkm.o
+# obj-$(CONFIG_SND_SOC_SM6150) += machine_dlkm.o
 machine_dlkm-y := $(MACHINE_OBJS)
 
-obj-$(CONFIG_SND_SOC_QCS405) += machine_dlkm.o
+# obj-$(CONFIG_SND_SOC_QCS405) += machine_dlkm.o
 machine_dlkm-y := $(MACHINE_OBJS)
 
-obj-$(CONFIG_SND_SOC_EXT_CODEC) += machine_dlkm.o
+# obj-$(CONFIG_SND_SOC_EXT_CODEC) += machine_dlkm.o
 machine_dlkm-y := $(MACHINE_OBJS)
 
-obj-$(CONFIG_SND_SOC_INT_CODEC) += machine_dlkm.o
+# obj-$(CONFIG_SND_SOC_INT_CODEC) += machine_dlkm.o
 machine_dlkm-y := $(MACHINE_OBJS)
 
-obj-$(CONFIG_SND_SOC_CPE) += cpe_lsm_dlkm.o
+# obj-$(CONFIG_SND_SOC_CPE) += cpe_lsm_dlkm.o
 cpe_lsm_dlkm-y := $(CPE_LSM_OBJS)
 
 # inject some build related information

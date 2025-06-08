@@ -115,10 +115,10 @@ GCOV_PROFILE := y
 endif
 
 # Module information used by KBuild framework
-obj-$(CONFIG_SND_SOC_ANALOG_CDC) += analog_cdc_dlkm.o
+# obj-$(CONFIG_SND_SOC_ANALOG_CDC) += analog_cdc_dlkm.o
 analog_cdc_dlkm-y := $(ANALOG_CDC_OBJS)
 
-obj-$(CONFIG_SND_SOC_DIGITAL_CDC) += digital_cdc_dlkm.o
+# obj-$(CONFIG_SND_SOC_DIGITAL_CDC) += digital_cdc_dlkm.o
 digital_cdc_dlkm-y := $(DIGITAL_CDC_OBJS)
 
 # inject some build related information
